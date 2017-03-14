@@ -9,17 +9,17 @@ In Angular, communication between a controller and his directives is a difficult
 * Use events, either with `$rootScope` or a shared scope
 * Pass a controller instance between them
 
-Each of these approaches have their own pros and cons, and might be better or worse then Gabby, depending on the situation.
+Each of these approaches has its own pros and cons, and might be better or worse than Gabby, depending on the situation.
 
 ## The solution
 
-The gabby approach will simply share two objects between the directive and its parent: `$scope.settings` and `$scope.api`.
+The Gabby approach will simply share two objects between the directive and its parent: `$scope.settings` and `$scope.api`.
 
 You will use the `settings` field to pass initial values and callbacks to the directive.
 
 You will use the `api` field to define "public" functions inside the directives for the parent controller to use.
 
-The Gabby service is **entirely optional**, and doesn't provide much other than a little less keystrokes.
+The Gabby service is **entirely optional**, and doesn't provide much, other than a little less keystrokes.
 
 ## Example
 
@@ -94,11 +94,15 @@ The Gabby service is **entirely optional**, and doesn't provide much other than 
   angular.module('myApp').controller('myDirCtrl', function($scope, gabby) {
     gabby.for($scope)
       .settings({
+          //These are the default settings for the directive,
+          //allowing the reader to easily understand what can
+          //be passed to the directive
           onStart: function() {},
           onSubmit: function() {},
           defaultName: 'John'  
         })
       .api({
+          //These are the public functions of the directives
           clearValues: function() {
             //do magic things
           },
