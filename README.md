@@ -86,6 +86,10 @@ The Gabby service is **entirely optional**, and doesn't provide much, other than
       $scope.api.getValues = function() {
           //do magic things
       };        
+
+      $scope.onSomeKeyPress = function() {        
+        $scope.onStart();
+      };
 });
 ```
 
@@ -113,5 +117,9 @@ The Gabby service is **entirely optional**, and doesn't provide much, other than
             //do magic things
           }
       });
+
+    $scope.onSomeKeyPress = function() {        
+      $scope.onStart();
+    };
   });
 ```
